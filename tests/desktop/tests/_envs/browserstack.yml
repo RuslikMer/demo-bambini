@@ -1,0 +1,28 @@
+class_name: AcceptanceTester
+modules:
+    enabled:
+        - \Helper\Acceptance
+        - WebDriver:
+            #url: __url_template__
+            url: #your url
+            browser: chrome # chrome or firefox
+            host: hub-cloud.browserstack.com
+            port: 80
+            restart: true
+            minimize: true
+            window_size: 1519x1000
+            wait: 30
+            implicitly_wait: 5
+            capabilities:
+                browser_version: latest
+                browserstack.user: ruslanmerikanov_hgdoNE
+                browserstack.key: rapizxxxCccqv5havz6k
+                name: Bstack-[Codeception]
+                browserstack.debug: true
+                acceptSslCerts: true
+                build: __build_name__
+                timeoutInSeconds: 5
+#               chromeOptions:
+#                   w3c: false
+            connection_timeout: 10
+            request_timeout: 300

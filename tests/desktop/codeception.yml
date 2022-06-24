@@ -1,0 +1,38 @@
+actor: Tester
+paths:
+    tests: tests
+    log: tests/_output
+    data: tests/_data
+    support: tests/_support
+    envs: tests/_envs
+#actor_suffix: Tester
+settings:
+    bootstrap: _bootstrap.php
+    colors: false
+    memory_limit: 1024M
+reporters:
+    json: Codeception\ResultPrinter\Json
+modules:
+    enabled:
+        - REST
+        - Asserts
+        - Config
+        - \Helper\Shot
+    config:
+        Config:
+            username: test-4@bambinifashion.com
+            password: 21452145
+        REST:
+            depends: PhpBrowser
+            url: http://localhost/api/
+extensions:
+    enabled:
+        - Codeception\Extension\RunFailed
+        - Yandex\Allure\Codeception\AllureCodeception
+    config:
+        Yandex\Allure\Codeception\AllureCodeception:
+            deletePreviousResults: false
+            outputDirectory: allure-results
+            ignoredAnnotations:
+                - env
+                - dataprovider

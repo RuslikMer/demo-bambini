@@ -1,0 +1,39 @@
+{
+    "name": "bambinifashion/inspector",
+    "description": "Tests suits for testing shop.bambinifashion.com",
+    "keywords": ["bambinifashion", "inspector"],
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "Merikanov Ruslan",
+            "email": "ruslan.merikanov@bambinifashion.com",
+            "role": "QA"
+        }
+    ],
+    "require": {
+        "codegyre/robo": "*",
+        "codeception/robo-paracept": "@dev",
+        "codeception/codeception": "^4.1",
+        "justblackbird/codeception-config-module": "^1.0",
+        "flow/jsonpath": "^0.3",
+        "allure-framework/allure-codeception": "^1.5.2",
+        "codeception/module-webdriver": "^1.4",
+        "codeception/module-phpbrowser": "1.0.1",
+        "codeception/module-rest": "^1.3",
+        "codeception/module-asserts": "^1.3",
+        "browserstack/browserstack-local": "dev-master"
+    },
+    "autoload": {
+        "psr-4": {
+            "Tests\\Desktop\\": "src/"
+        }
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "vendor/bin/codecept build"
+        ],
+        "post-update-cmd": [
+            "vendor/bin/codecept build"
+        ]
+    }
+}
