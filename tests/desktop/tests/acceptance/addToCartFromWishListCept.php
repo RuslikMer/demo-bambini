@@ -4,8 +4,3 @@ $I = new AcceptanceTester($scenario);
 $I->am("not authorized user");
 $I->wantTo('add to cart from wishlist');
 $I->openHomePage();
-$I->selectCategoryHomePage();
-$I->goToProductFromListing();
-$I->addToWishList();
-$I->goToWishList();
-$I->addToCartFromWishlist();

@@ -1,0 +1,32 @@
+definitions:
+  steps:
+    - aws: &aws
+        access-key: $AWS_ACCESS_KEY
+        secret-key: $AWS_SECRET_KEY
+
+  services:
+    selenium:
+      image: selenium/standalone-chrome
+
+  caches:
+    browserstack: tests/browserstack/vendor
+    desktop: tests/desktop/vendor
+
+pipelines:
+  custom:
+    test-browserstack:
+      - step:
+          name: test
+          runs-on:
+            - 4g.runner
+          image:
+            name: 563015111653.dkr.ecr.eu-central-1.amazonaws.com/bambinifashion:php7.4-fpm
+            aws: *aws
+          caches:
+            - composer
+            - browserstack
+          script:
+            - cd tests/desktop
+            - composer install
+            - cat ./tests/_envs/browserstack.yml
+            - vendor/bin/robo parallel:all || true # "|| true" this for ignoring tests errors

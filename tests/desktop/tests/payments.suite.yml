@@ -8,7 +8,7 @@ class_name: AcceptanceTester
 modules:
     enabled:
         - WebDriver:
-            url: # your url
+            url: https://bambinifashion.com/
             browser: chrome # chrome or firefox
             host: 127.0.0.1
             port: 4444

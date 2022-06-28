@@ -4,7 +4,7 @@ modules:
         - \Helper\Acceptance
         - WebDriver:
             #url: __url_template__
-            url: #your url
+            url: https://bambinifashion.com/
             browser: chrome # chrome or firefox
             host: hub-cloud.browserstack.com
             port: 80

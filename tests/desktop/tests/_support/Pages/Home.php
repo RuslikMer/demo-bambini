@@ -44,13 +44,6 @@ class Home
             $I->setCookie($cookie[0], $cookie[1]);
             $I->reloadPage();
         }
-
-        if ($I->isProduction()) {
-            $this->closeOverlayBanner();
-        }
-
-        $I->checkMandatoryElements();
-        $this->confirmProcessingPersonalData();
     }
 
     /**
